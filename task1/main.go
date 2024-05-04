@@ -69,8 +69,9 @@ func main() {
 	fmt.Println(per1.getAdmin())
 	// второе решение
 
-	per3 := Action2{HumanInterface: &Human2{name: "Vlad", age: 15}, admin: false}
-	fmt.Println(per3.GetName())
-	fmt.Println(per3.GetAge())
-	fmt.Println(per3.GetAdmin())
+	per2 := Action2{HumanInterface: &Human2{name: "Vlad", age: 15}, admin: false}
+
+	fmt.Println(per2.GetName())
+	fmt.Println(per2.GetAge())
+	fmt.Println(per2.GetAdmin())
 }
