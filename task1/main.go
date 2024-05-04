@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // первый вариант решения
 type Human struct {
@@ -10,7 +12,12 @@ type Human struct {
 
 // в структуру Action встраиваем структуру Human с ее полями и методами
 type Action struct {
-	Human
+	admin bool
+	*Human
+}
+
+func (a *Action) getAdmin() bool {
+	return a.admin
 }
 
 func (h *Human) getAge() int {
@@ -37,27 +44,33 @@ type Human2 struct {
 
 // структура Action2 так же реализует интерфейс
 type Action2 struct {
+	admin bool
 	HumanInterface
 }
 
-func (h Human2) GetAge() int {
+func (h *Human2) GetAge() int {
 	return h.age
 }
 
-func (h Human2) GetName() string {
+func (a *Action2) GetAdmin() bool {
+	return a.admin
+}
+
+func (h *Human2) GetName() string {
 	return h.name
 }
 
 func main() {
 	// первое решение
-	per1 := Action{Human{age: 32, name: "Ivan"}}
+	per1 := Action{admin: true, Human: &Human{age: 32, name: "Ivan"}}
 
 	fmt.Println(per1.getName())
 	fmt.Println(per1.getAge())
-
+	fmt.Println(per1.getAdmin())
 	// второе решение
 
-	per3 := Action2{HumanInterface: Human2{name: "Vlad", age: 15}}
+	per3 := Action2{HumanInterface: &Human2{name: "Vlad", age: 15}, admin: false}
 	fmt.Println(per3.GetName())
 	fmt.Println(per3.GetAge())
+	fmt.Println(per3.GetAdmin())
 }
