@@ -1,3 +1,5 @@
+// Дана переменная int64. Разработать программу которая устанавливает i-й бит в 1 или 0.
+
 package main
 
 func ChangeBit(num, pos, bit int64) int64 {
