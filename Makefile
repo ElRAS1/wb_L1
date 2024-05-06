@@ -4,4 +4,4 @@ lint:
 format:
 	find . -name "*.go" -exec go fmt {} \;
 
-.PHONY: lint
+.PHONY: lint format
