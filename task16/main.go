@@ -58,7 +58,7 @@ func quickSort(sl []int, left int, right int) {
 			j--
 		}
 	}
-	// рекурсивно вывзываем функция для левой части слайса и правой
+	// рекурсивно вывзываем функции для левой и правой части слайса
 	quickSort(sl, left, j)
 	quickSort(sl, i, right)
 }
